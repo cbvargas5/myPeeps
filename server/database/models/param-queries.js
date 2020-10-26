@@ -1,5 +1,5 @@
 module.exports = {
-    contactTableQueryStrings = {
+    contactTableQueryStrings: {
         GET_ALL_CONTACTS: "SELECT * FROM contacts",
         CREATE_CONTACT: `
           INSERT INTO contacts
