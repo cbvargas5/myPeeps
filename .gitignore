@@ -1,3 +1,9 @@
+# Node
 node_modules
 
+# Security
 .env
+
+# Development Builds
+client/dist/styles/main.css
+client/dist/bundle.js
