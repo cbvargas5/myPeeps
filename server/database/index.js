@@ -1,17 +1,16 @@
-const express = require('express');
-const app = express();
+const { Pool } = require('pg');
 require('dotenv').config();
-const port = process.env.PORT || 3232;
-const path = require('path');
-const CONTACTS = require('./routers/contacts');
-const CONTACT_DETAILS = require('./routers/details');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/', express.static(path.join(__dirname, '../client/dist')));
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: 5432
+})
 
-//routes
-app.use('/api/contacts', CONTACTS);
-app.use('/api/details', CONTACT_DETAILS);
+pool.connect()
+    .then(() => console.log('Connected to PSQL'))
+    .catch((err) => console.error(err))
 
-app.listen(port, err => err ? console.error('SERVER ERROR: ', err) : console.log(`Server is listening on port ${port}`))
+module.exports = pool;
