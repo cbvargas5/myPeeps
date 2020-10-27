@@ -22,6 +22,7 @@ module.exports = {
           WHERE contact_id = $1
         `
     },
+
     addressTableQueryStrings: {
         GET_CONTACT_ADDRESSES: `
           SELECT * FROM addresses
@@ -43,9 +44,33 @@ module.exports = {
           zip = $5
           WHERE address_id = $1
         `,
-        DELETE_CONTACT: `
+        DELETE_ADDRESS: `
           DELETE FROM addresses
           WHERE address_id = $1
+        `
+    },
+
+    phoneNumbersTableQueryStrings: {
+        GET_CONTACT_PHONE_NUMBERS: `
+          SELECT * FROM phone_numbers
+          WHERE
+          contact_id = $1
+        `,
+        CREATE_PHONE_NUMBER: `
+          INSERT INTO phone_numbers
+          (contact_id, phone_num)
+          VALUES
+          ($1, $2)
+        `,
+        UPDATE_PHONE_NUMBER: `
+          UPDATE phone_numbers
+          SET
+          phone_num = $2
+          WHERE phone_id = $1
+        `,
+        DELETE_PHONE_NUMBER: `
+          DELETE FROM phone_numbers
+          WHERE phone_id = $1
         `
     }
 
