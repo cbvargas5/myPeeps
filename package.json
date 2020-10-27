@@ -4,7 +4,10 @@
     "description": "Online Address Book",
     "main": "server/index.js",
     "scripts": {
-        "dev-start": "nodemon server/index.js"
+        "dev-start": "nodemon server/index.js",
+        "dev-build": "webpack -w",
+        "build": "webpack --mode production",
+        "start": "node server/index.js"
     },
     "repository": {
         "type": "git",
