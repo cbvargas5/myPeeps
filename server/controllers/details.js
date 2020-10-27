@@ -8,7 +8,6 @@ module.exports = {
             addresses: [],
             phoneNumbers: []
         }
-
         detailQueries.getAllAddressesForContact(contactId)
             .then(data => detailsToSend.addresses = data.rows)
             .then(() => detailQueries.getAllPhoneNumbersForContact(contactId))
@@ -17,5 +16,39 @@ module.exports = {
                 res.status(200).send(detailsToSend)
             })
             .catch(err => res.status(400).send(err))
-    }
+    },
+
+    createAddress: (req, res) => {
+        const {
+            street_address,
+            city,
+            state_name,
+            zip
+        } = req.body
+
+        detailQueries.createAddressRecord(req.params.id, street_address, city, state_name, zip)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+    updateAddress: (req, res) => {
+        const {
+            street_address,
+            city,
+            state_name,
+            zip
+        } = req.body
+
+        detailQueries.updateAddressRecord(req.params.id, street_address, city, state_name, zip)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+    deleteAddress: (req, res) => {
+        detailQueries.deleteAddressRecord(req.params.id)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+
+    // createPhoneNumber
+    // updatePhoneNumber
+    // deletePhoneNumber
 }
