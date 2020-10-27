@@ -31,10 +31,7 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      async: false,
-      eslint: {
-        files: "./src/**/*",
-      },
+      async: false
     }),
   ]
 };
