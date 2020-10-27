@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-    // const detailControllers = require('../controllers/details')
+const detailControllers = require('../controllers/details')
 
-// router
-//     .route('/:id')
-//     .get(detailControllers.getAllDetails)
+router
+    .route('/:id')
+    .get(detailControllers.getAllDetailsForContact)
 
 // router
 //     .route('/phone/:id')
