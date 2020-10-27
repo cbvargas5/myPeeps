@@ -7,5 +7,10 @@ router
     .get(contactControllers.getAllContacts)
     .post(contactControllers.createContact)
 
+router
+    .route('/:id')
+    .put(contactControllers.updateContact)
+    // .delete(contactControllers.deleteContact)
+
 
 module.exports = router

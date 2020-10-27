@@ -9,5 +9,5 @@ const {
 module.exports = {
     getAllContactsFromDatabase: () => pool.query(GET_ALL_CONTACTS),
     createContact: (...contactColumnsToAdd) => pool.query(CREATE_CONTACT, contactColumnsToAdd),
-    // updateContact: (id, request)
+    updateContact: (id, ...contactColumnsToUpdate) => pool.query(UPDATE_CONTACT, [id, ...contactColumnsToUpdate])
 }
