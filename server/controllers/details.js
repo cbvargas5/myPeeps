@@ -48,7 +48,20 @@ module.exports = {
             .catch(err => res.status(400).send(err))
     },
 
-    // createPhoneNumber
-    // updatePhoneNumber
-    // deletePhoneNumber
+    createPhoneNumber: (req, res) => {
+        detailQueries.createPhoneNumRecord(req.params.id, req.body.phone_num)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+    updatePhoneNumber: (req, res) => {
+        detailQueries.updatePhoneNumRecord(req.params.id, req.body.phone_num)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+    deletePhoneNumber: (req, res) => {
+        detailQueries.deletePhoneNumRecord(req.params.id)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
+    // 
 }
