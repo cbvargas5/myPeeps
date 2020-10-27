@@ -21,6 +21,32 @@ module.exports = {
           DELETE FROM contacts
           WHERE contact_id = $1
         `
+    },
+    addressTableQueryStrings: {
+        GET_CONTACT_ADDRESSES: `
+          SELECT * FROM addresses
+          WHERE
+          contact_id = $1
+        `,
+        CREATE_ADDRESS: `
+          INSERT INTO addresses
+          (contact_id, street_address, city, state_name, zip)
+          VALUES
+          ($1, $2, $3, $4, $5)
+        `,
+        UPDATE_ADDRESS: `
+          UPDATE addresses
+          SET
+          street_address = $2,
+          city = $3,
+          state_name = $4,
+          zip = $5
+          WHERE address_id = $1
+        `,
+        DELETE_CONTACT: `
+          DELETE FROM addresses
+          WHERE address_id = $1
+        `
     }
 
 }
