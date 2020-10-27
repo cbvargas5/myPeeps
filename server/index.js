@@ -12,6 +12,6 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 //routes
 app.use('/api/contacts', CONTACTS);
-app.use('/api/details', CONTACT_DETAILS);
+// app.use('/api/details', CONTACT_DETAILS);
 
 app.listen(port, err => err ? console.error('SERVER ERROR: ', err) : console.log(`Server is listening on port ${port}`))

@@ -7,5 +7,6 @@ const {
 } = require('./param-queries').contactTableQueryStrings
 
 module.exports = {
-    getAllContactsFromDatabase: () => pool.query(GET_ALL_CONTACTS)
+    getAllContactsFromDatabase: () => pool.query(GET_ALL_CONTACTS),
+    createContact: (requestBody) => pool.query(CREATE_CONTACT, [requestBody.first_name, requestBody.last_name, requestBody.email, requestBody.category, requestBody.notes])
 }
