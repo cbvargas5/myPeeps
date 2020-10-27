@@ -33,4 +33,9 @@ module.exports = {
             .then(() => res.status(200).end())
             .catch(err => res.status(400).send(err))
     },
+    deleteContact: (req, res) => {
+        contactQueries.deleteContact(req.params.id)
+            .then(() => res.status(200).end())
+            .catch(err => res.status(400).send(err))
+    },
 }
