@@ -5,7 +5,9 @@ interface EditContactPageProps {
 }
 
 const EditContactPage: React.FC<EditContactPageProps> = ({}) => {
-    return ();
+    return (
+      <h1>Hello from EditContactPage</h1>
+    );
 }
 
 export default EditContactPage
