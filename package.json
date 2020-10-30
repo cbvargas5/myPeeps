@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/cbvargas5/myPeeps#readme",
     "dependencies": {
+        "@types/react-router-dom": "^5.1.6",
         "axios": "^0.21.0",
         "bootstrap": "^4.5.3",
         "dotenv": "^8.2.0",
