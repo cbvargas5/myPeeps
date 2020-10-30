@@ -6,7 +6,9 @@
     "scripts": {
         "dev-start": "nodemon server/index.js",
         "dev-build": "webpack -w",
+        "dev-sass": "node-sass -w client/src/sass/ -o client/dist/styles --recursive",
         "build": "webpack --mode production",
+        "sass": "node-sass client/src/sass/ -o client/dist/styles",
         "start": "node server/index.js"
     },
     "repository": {
