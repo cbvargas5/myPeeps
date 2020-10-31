@@ -37,9 +37,15 @@ interface getMethodResponseState {
 
 export const useGet = (url: string) => {
 
-  const [getMethodResponse, setGetMethodResponse] = useState<getMethodResponseState>()
+  const [getMethodResponse, setGetMethodResponse] = useState<getMethodResponseState>({ responseData: null, isLoading: true })
 
   useEffect(() => {
-    // do stuff
+    setGetMethodResponse({ responseData: null, isLoading: true })
+    axios.get<Contact[] | ContactDetails>(url)
+      .then(({ data }) => {
+        setGetMethodResponse({ responseData: data, isLoading: false })
+      })
   }, [url])
+
+  return getMethodResponse
 }
