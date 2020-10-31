@@ -15,7 +15,7 @@ interface ContactDetailProps {
 }
 
 const ContactDetail: React.FC<ContactDetailProps> = ({ contactId, detailTitle, detailInfo }) => {
-
+  // will likely need onClick functionality got wrapper
   return (
     <div data-contact-id={contactId} className="contact-detail-wrapper">
       <div className="detail-title">{detailTitle}</div>
