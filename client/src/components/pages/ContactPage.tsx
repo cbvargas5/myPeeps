@@ -23,7 +23,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ }) => {
             Array.isArray(responseData) &&
             responseData.map(({ contact_id, first_name, last_name, category }) => (
               <li className="contact-list-item">
-                <Link to={`/contact-details/${contact_id}`}>
+                <Link to={`/contact-details/?contact_id=${contact_id}`}>
                   <Contact contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
                 </Link>
               </li>
