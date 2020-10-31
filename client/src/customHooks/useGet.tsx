@@ -3,8 +3,8 @@ import axios from 'axios'
 
 
 interface Contact {
-  contact_id: string | null;
-  first_name: string | null;
+  contact_id: string;
+  first_name: string;
   last_name: string | null;
   category: string | null;
   notes: string | null;
