@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import ContactDetail from '../ContactDetail';
 
@@ -11,7 +12,22 @@ const DetailsPage: React.FC<DetailsPageProps> = (props) => {
   const urlParams = new URLSearchParams(queryString)
   const contactIdFromQuery = urlParams.get('contact_id')
     return (
-      <h1>Hello from DetailsPage</h1>
+      <section className="details-page">
+        <header>
+          {/* links for going back */}
+          <h1></h1>
+        </header>
+        <div>
+          <h2>First Last</h2>
+        </div>
+        <section className="big-card">
+          <ul>
+            {
+              
+            }
+          </ul>
+        </section>
+      </section>
     );
 }
 
