@@ -10,7 +10,6 @@ interface ContactPageProps {
 
 const ContactPage: React.FC<ContactPageProps> = ({ }) => {
   const { responseData, isLoading } = useGet('/api/contacts')
-  Array.isArray(responseData) && console.log(responseData)
   return (
     <section className="contact-page">
       <header>
@@ -22,11 +21,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ }) => {
         <ul className="contact-list">
           {
             Array.isArray(responseData) &&
-            responseData.map(() => (
+            responseData.map(({ contact_id, first_name, last_name, category }) => (
               <li className="contact-list-item">
-                <Link to="/contact-details">
-                  {/* <Contact /> */}
-                  Contact
+                <Link to={`/contact-details/${contact_id}`}>
+                  <Contact contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
                 </Link>
               </li>
             ))
