@@ -2,11 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Contact from '../Contact';
 
+import { useGet } from '../../customHooks/useGet'
+
 interface ContactPageProps {
 
 }
 
 const ContactPage: React.FC<ContactPageProps> = ({ }) => {
+  const { responseData, isLoading } = useGet('/api/contacts')
+  Array.isArray(responseData) && console.log(responseData)
   return (
     <section className="contact-page">
       <header>
@@ -15,7 +19,19 @@ const ContactPage: React.FC<ContactPageProps> = ({ }) => {
       <section className="big-card">
         {/* search */}
         {/* add contact button */}
-        {/* list of contacts */}
+        <ul className="contact-list">
+          {
+            Array.isArray(responseData) &&
+            responseData.map(() => (
+              <li className="contact-list-item">
+                <Link to="/contact-details">
+                  {/* <Contact /> */}
+                  Contact
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
       </section>
     </section>
   );

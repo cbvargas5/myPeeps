@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ContactDetail from '../ContactDetail';
+
 interface DetailsPageProps {
 
 }
