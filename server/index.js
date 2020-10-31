@@ -14,4 +14,8 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use('/api/contacts', CONTACTS);
 app.use('/api/details', CONTACT_DETAILS);
 
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+})
+
 app.listen(port, err => err ? console.error('SERVER ERROR: ', err) : console.log(`Server is listening on port ${port}`))
