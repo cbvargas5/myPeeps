@@ -5,10 +5,11 @@ import { ContactData } from '../../types'
 
 interface ContactPageProps {
   ContactData: ContactData[];
+  clickContact: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 
-const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
+const ContactPage: React.FC<ContactPageProps> = ({ ContactData, clickContact }) => {
 
   return (
     <section className="contact-page">
@@ -22,7 +23,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
           {
             ContactData.map(({ contact_id, first_name, last_name, category }) => (
               <li data-contact-id={contact_id} className="contact-list-item">
-                <Contact contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
+                <Contact clickContact={clickContact} contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
               </li>
             ))
           }
