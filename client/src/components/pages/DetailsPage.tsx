@@ -8,9 +8,7 @@ interface DetailsPageProps {
 }
 
 const DetailsPage: React.FC<DetailsPageProps> = (props) => {
-  const queryString = window.location.search
-  const urlParams = new URLSearchParams(queryString)
-  const contactIdFromQuery = urlParams.get('contact_id')
+
     return (
       <section className="details-page">
         <header>
