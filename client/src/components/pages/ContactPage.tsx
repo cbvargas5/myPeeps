@@ -1,14 +1,13 @@
 import React from 'react'
 import Contact from '../Contact';
 
-import { useGet } from '../../customHooks/useGet'
+import { ContactData } from '../../types'
 
 interface ContactPageProps {
-
+  ContactData: ContactData[];
 }
 
-const ContactPage: React.FC<ContactPageProps> = ({ }) => {
-  const { responseData, isLoading } = useGet('/api/contacts')
+const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
   return (
     <section className="contact-page">
       <header>
@@ -19,8 +18,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ }) => {
         {/* add contact button */}
         <ul className="contact-list">
           {
-            Array.isArray(responseData) &&
-            responseData.map(({ contact_id, first_name, last_name, category }) => (
+            Array.isArray(ContactData) &&
+            ContactData.map(({ contact_id, first_name, last_name, category }) => (
               <li className="contact-list-item">
                 <Contact contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
               </li>
