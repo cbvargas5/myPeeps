@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Contact from '../Contact';
 
 import { ContactData } from '../../types'
@@ -8,6 +8,14 @@ interface ContactPageProps {
 }
 
 const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
+
+  
+  
+  const clickContact = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const selectedContactId = event.currentTarget.getAttribute('data-contact-id')
+    console.log('click:', selectedContactId)
+  }
+
   return (
     <section className="contact-page">
       <header>
@@ -18,10 +26,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
         {/* add contact button */}
         <ul className="contact-list">
           {
-            Array.isArray(ContactData) &&
             ContactData.map(({ contact_id, first_name, last_name, category }) => (
-              <li className="contact-list-item">
-                <Contact contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
+              <li data-contact-id={contact_id} className="contact-list-item">
+                <Contact clickContact={clickContact} contactId={contact_id} firstName={first_name} lastName={last_name} category={category} />
               </li>
             ))
           }
