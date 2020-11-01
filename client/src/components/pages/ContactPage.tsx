@@ -7,15 +7,15 @@ interface ContactPageProps {
   ContactData: ContactData[];
 }
 
+
 const ContactPage: React.FC<ContactPageProps> = ({ ContactData }) => {
 
-  
-  
-  const clickContact = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const selectedContactId = event.currentTarget.getAttribute('data-contact-id')
-    console.log('click:', selectedContactId)
-  }
+  const [clickedContactId, setClickedContactId] = useState<string | null>(null)
 
+  const clickContact = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setClickedContactId(event.currentTarget.getAttribute('data-contact-id'))
+  }
+  console.log('clicked boi', clickedContactId)
   return (
     <section className="contact-page">
       <header>
