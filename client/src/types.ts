@@ -1,4 +1,4 @@
-export interface Contact {
+export interface ContactData {
   contact_id: string;
   first_name: string;
   last_name: string | null;
@@ -21,12 +21,12 @@ export interface PhoneNumber {
   phone_num: string;
 }
 
-export interface ContactDetails {
+export interface ContactDetailsData {
   addresses: Address[];
   phoneNumbers: PhoneNumber[];
 }
 
 export interface GetMethodResponseState {
-  responseData: Contact[] | ContactDetails | null;
+  responseData: ContactData[] | ContactDetailsData | null;
   isLoading: boolean;
 }

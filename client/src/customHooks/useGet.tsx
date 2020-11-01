@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Contact, ContactDetails, GetMethodResponseState } from '../types'
+import { ContactData, ContactDetailsData, GetMethodResponseState } from '../types'
 
 
 
@@ -11,7 +11,7 @@ export const useGet = (url: string) => {
 
   useEffect(() => {
     setGetMethodResponse({ responseData: null, isLoading: true })
-    axios.get<Contact[] | ContactDetails>(url)
+    axios.get<ContactData[] | ContactDetailsData>(url)
       .then(({ data }) => {
         setGetMethodResponse({ responseData: data, isLoading: false })
       })
