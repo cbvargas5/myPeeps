@@ -18,12 +18,12 @@ export interface Address {
 export interface PhoneNumber {
   phone_id: string;
   contact_id: string;
-  phone_num: string;
+  phone_num: string | null;
 }
 
 export interface ContactDetailsData {
-  addresses: Address[];
-  phoneNumbers: PhoneNumber[];
+  addresses: Address[] | any[];
+  phoneNumbers: PhoneNumber[] | any[];
 }
 
 export interface GetMethodResponseState {

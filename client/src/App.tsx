@@ -7,16 +7,25 @@ import { useGet } from './customHooks/useGet'
 
 
 const App: React.FC = () => {
-
-  const { responseData: contactArray, isLoading } = useGet('/api/contacts')
-
+  let isLoading: boolean = false
+  let getContactResponse;
+  let contactArray;
   const [clickedContactId, setClickedContactId] = useState<string | null>(null)
+  if (!clickedContactId) {
+    getContactResponse = useGet('/api/contacts')
+    isLoading = getContactResponse.isLoading
+    contactArray = getContactResponse.responseData
+
+  }
 
   const clickContact = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setClickedContactId(event.currentTarget.getAttribute('data-contact-id'))
+    let selectedContactId = event.currentTarget.getAttribute('data-contact-id')
+    setClickedContactId(selectedContactId)
+    const getDetailsResponse = useGet(`/api/details/${selectedContactId}`)
+    // const contactDetailsObject = getDetailsResponse.responseData
+    // console.log(contactDetailsObject)
   }
-  console.log('isLoading:', isLoading)
-  console.log('clicked contact', clickedContactId)
+
   if (isLoading) {
     return (
       <div>Loading Data...</div>

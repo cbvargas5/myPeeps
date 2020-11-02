@@ -7,6 +7,7 @@ import { ContactData, ContactDetailsData, GetMethodResponseState } from '../type
 
 export const useGet = (url: string) => {
 
+  console.log(url)
   const [getMethodResponse, setGetMethodResponse] = useState<GetMethodResponseState>({ responseData: null, isLoading: true })
 
   useEffect(() => {
