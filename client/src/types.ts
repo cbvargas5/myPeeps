@@ -26,7 +26,7 @@ export interface ContactDetailsData {
   phoneNumbers: PhoneNumber[] | any[];
 }
 
-export interface GetMethodResponseState {
-  responseData: ContactData[] | ContactDetailsData | null;
+export interface ContactListGetMethodResponseState {
+  responseData: ContactData[] | null;
   isLoading: boolean;
 }

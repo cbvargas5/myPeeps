@@ -3,7 +3,7 @@ import ContactPage from './components/pages/ContactPage'
 import DetailsPage from './components/pages/DetailsPage'
 import EditContactPage from './components/pages/EditContactPage'
 
-import { useGet } from './customHooks/useGet'
+import { useGetContacts } from './customHooks/useGetContacts'
 
 
 const App: React.FC = () => {
@@ -12,7 +12,7 @@ const App: React.FC = () => {
   let contactArray;
   const [clickedContactId, setClickedContactId] = useState<string | null>(null)
   if (!clickedContactId) {
-    getContactResponse = useGet('/api/contacts')
+    getContactResponse = useGetContacts()
     isLoading = getContactResponse.isLoading
     contactArray = getContactResponse.responseData
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const clickContact = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     let selectedContactId = event.currentTarget.getAttribute('data-contact-id')
     setClickedContactId(selectedContactId)
-    const getDetailsResponse = useGet(`/api/details/${selectedContactId}`)
+    // const getDetailsResponse = useGet(`/api/details/${selectedContactId}`)
     // const contactDetailsObject = getDetailsResponse.responseData
     // console.log(contactDetailsObject)
   }
